@@ -140,12 +140,13 @@ h1{
     }
     .search{
 
-        width: 118px;
+        width: 125px;
         padding: 6px;
 
     }
     .leftMenu{
-        padding: 5px;
+        justify-content: space-between;
+        padding: 0 50px;
     }
     .leftMenu h1{
         font-weight: 600;
