@@ -3,8 +3,11 @@ const searchInput = document.querySelector(".search");
 const catContainer = document.querySelector(".catContainer");
 const priceRange = document.querySelector(".priceRange");
 const PriceValue = document.querySelector(".PriceValue");
-
+const menu = document.querySelector(".menu");
+const mobileNav = document.querySelector(".mobileNav");
+const body = document.querySelector("body");
 let productData = [];
+let isMobileNavOpen = false;
 
 async function getProductData() {
   const response = await fetch("https://fakestoreapi.com/products");
@@ -50,4 +53,17 @@ searchInput.addEventListener("input", () => {
   displayProduct(filteredData);
 });
 
+const mobileNavFunc = () => {
+  menu.addEventListener("click", () => {
+    isMobileNavOpen = !isMobileNavOpen;
+    if (isMobileNavOpen) {
+      mobileNav.classList.add("activeNav");
+      body.style.overflowY = "hidden";
+    } else {
+      mobileNav.classList.remove("activeNav");
+      body.style.overflowY = "scroll";
+    }
+  });
+};
+mobileNavFunc();
 getProductData();
